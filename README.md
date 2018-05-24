@@ -10,7 +10,11 @@ and constructs it via
 
   descriptor = fnopen(string);
 
-string is a char* such as "x*x-y*y+0.997" and represents a functional forms. Variables can be any of the letters of the English alphabet (here, 'x' and 'y'). Such variables map to 26 predefined double precision variables, which can be accessed via function fnmemory:
+string is a char* such as 
+
+  char *string = "x * x - y * y + 0.997";
+  
+that represents a functional forms. Variables can be any of the letters of the English alphabet (here, 'x' and 'y'). Such variables map to 26 predefined double precision variables, which can be accessed via function fnmemory:
 
   double *fnmemory(FN *descriptor, int);
   
