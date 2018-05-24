@@ -9,7 +9,7 @@ void ppmwrite(FILE *f, FN *re, FN *im, char *s)
 int i, N;
 f=fopen(s, "w");
 
-fprintf(f, "P6\n# Creato da Enzo De Florio, 1994,96. re(x,y)=%s, im(x,y)=%s\n",
+fprintf(f, "P6\n# Created by Eidon (eidon@tutanota.com), 2018. re(x,y)=%s, im(x,y)=%s\n",
 	fn(re), fn(im));
 fprintf(f, "%d %d\n255\n", MAXX, MAXY);
 
