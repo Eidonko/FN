@@ -10,7 +10,8 @@
 #define POP2      -3
 #define DIVBYZERO -4
 
-#define FNDEBUG 1
+//#define FNDEBUG 1
+#define FNDEBUG 0
 extern int fndebug;
 extern double mem[MAXMEM];
 extern int    code[MAXCODE];
@@ -25,12 +26,6 @@ typedef struct {  int memn, coden;
           double *mem;
           char *s;
 } FN;
-double fnread(FN*);
-FN *fnopen(void);
-FN *fnopen_s(char*);
-void fnclose(FN*);
-double *fnmemory(FN*,int);
-void fnsetmem(FN*, int, double);
-double fngetmem(FN*, int);
-const char *fn(FN*);
+
+#include "fnclient.h"
 #endif

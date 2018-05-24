@@ -36,8 +36,8 @@ void ppmwrite(FILE *f, FN *re, FN *im, char *s);
 void pset(int col);
 void psetcol(int i, int j, int col);
 void azzera_mat();
-void julia1(Real ha, Real hb, Real va, Real vb, FN* re, FN* im, int iter);
-void juliasim(Real h, Real v, FN *re, FN *im, int iter);
+void julia1(Real ha, Real hb, Real va, Real vb, FN* re, FN* im, int iter, int verb);
+void juliasim(Real h, Real v, FN *re, FN *im, int iter, int verb);
 void julianonsim(Real ha, Real hb, Real va, Real vb, FN *re, FN *im, int iter);
 
 #endif /* _CHAOS_INCLUDED */

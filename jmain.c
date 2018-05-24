@@ -14,14 +14,15 @@ int main(int argc, char *argv[])
 	FN *re, *im;
 	Real atof();
     char *re_s, *im_s;
-	int l;
+	int l, verbose;
 
-	printf("This program demonstrates the use of class FN by generating a Julia set\n");
 
-	if(argc<8) {
-		fprintf(stderr, "Usage: julia left right bottom top iterations real-part imaginary-part.\n");
+	if(argc<9) {
+		fprintf(stderr, "Usage: julia left right bottom top iterations real-part imaginary-part verbosity.\n");
  		exit(1);
 	}
+
+	printf("This program demonstrates the use of class FN by generating a Julia set\n");
 
 	ha=atof(argv[1]);
 	hb=atof(argv[2]);
@@ -36,23 +37,24 @@ int main(int argc, char *argv[])
 	strcpy(im_s, argv[7]);
 	strcat(re_s, "\n");
 	strcat(im_s, "\n");
+	verbose=atoi(argv[8]);
 
+	if (verbose)
 	printf("h(%f,%f), v(%f,%f); %d iterations\n" ,ha,hb,va,vb,iter);
 
-	printf("Please insert a functional form:\n");
-	printf("Real part : ");
-	re=fnopen_s(re_s);
-	printf("Imaginary part : ");
-	im=fnopen_s(im_s);
+	re=fnopen(re_s);
+	im=fnopen(im_s);
 
-	free(re_s), free(im_s);
 
+	if (verbose)
 	printf("Generating Julia set with algorithm no. 1\n");
-	julia1(ha, hb, va, vb, re, im, iter);
+
+	julia1(ha, hb, va, vb, re, im, iter, verbose);
 
 	/*
 	sprintf(param, "c=%f+i%f\n", cr,ci);
 	*/
 	ppmwrite(f, re, im, "frac.ppm");
 	fnclose(re), fnclose(im);
+	free(re_s), free(im_s);
 }

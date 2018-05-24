@@ -153,7 +153,7 @@ int parse_string(const char* in) {
 }
 
 
-FN *fnopen(void)
+FN *fnopenv(void)
 {
  FN *fnp; int i;
 
@@ -186,7 +186,7 @@ FN *fnopen(void)
  return fnp;
 }
 
-FN *fnopen_s(char *s)
+FN *fnopen(char *s)
 {
  FN *fnp; int i;
 

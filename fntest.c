@@ -17,7 +17,7 @@ int main()
     scanf("%s", function);
     printf("'%s'\n", function);
     strcat(function, "\n");
-	f=fnopen_s(function);
+	f=fnopen(function);
 
 	x = fnmemory(f, 'x');
 	y = fnmemory(f, 'y');
